@@ -1,5 +1,4 @@
-for id in $(podman ps -q); do 
-  echo "Upgrading $(podman inspect -f '{{.Name}}' $id)"
+#!/bin/bash
+for id in $(podman ps -q); do
   podman exec $id dnf upgrade --refresh -y
 done
-echo "Done"
